@@ -1,0 +1,26 @@
+<div id="request" class="container" style="padding-top: 70px;"> 
+    
+    <script type="text/javascript">
+$(document).ready(function(){
+    $('#ipInput').tooltip({
+        placement : 'right',
+        title : 'Examples:</br>10.20.150.0/24</br>10.20.150.*</br>10.20.150.76-200</br>10.20.150.1,2,3,4',
+        html : true
+    });
+});
+</script>
+    
+    <form  name="myForm" ng-submit="submitNmapScan()" >
+  <div class="form-group">
+      <h2>Scan Multiple IP Addresses</h2>
+    <label for="ipInput">IP address Range</label>
+    <input style="width: 20%" type="text" data-toggle="tooltip" ng-model="ip" class="form-control" id="ipInput" pattern="[0-9]+\.[0-9]+\.[0-9]+\.(a-zA-Z|[0-9]|\-|\,|\*)*" placeholder="Enter the ip" required>
+   <span ng-show="myForm.price_field.$error.pattern">Not a valid IP!</span>
+    <span ng-show="myForm.price_field.$error.required">This field is required!</span>
+  </div>
+ 
+  <button id="submit" type="submit" class="btn btn-default">Submit</button>
+</form>
+    <img ng-show="loading" src="/SeniorFrontEnd/images/loading.gif" alt="Please wait...">
+    
+</div>

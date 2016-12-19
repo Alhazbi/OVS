@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html ng-app="seniorapp" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <title>(OVS) Online Vulnerability Scanner</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+        <!-- Custom styles for this template -->
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/libs/angular.js"></script>
+        <script src="js/libs/angular-route.js"></script>
+        <script src="js/libs/angular-animate.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/HomeController.js"></script>
+        <script src="js/ScanController.js"></script>
+        <script src="js/HistoryController.js"></script>
+        <script src="js/NmapScanController.js"></script>
+        <script src="js/LoginController.js"></script>
+        <script src="js/ManageUsersController.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="bootstrap/js/html5shiv.js"></script>
+        <script src="bootstrap/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body  data-spy="scroll" data-target="#topnav">
+        <div ng-controller="HomeController" >
+            <div class="navbar navbar-inverse navbar-fixed-top" id="topnav">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/SeniorFrontEnd/#/">
+                            <img src="images/expose-logo.png" alt="Expose" height="17px" />
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="/SeniorFrontEnd/#/">Home</a></li>
+                            <li ng-show="isLoggedIn()"><a href="/SeniorFrontEnd/#/#partialsDiv">Services</a></li>
+                            <li ng-show="isLoggedIn() && user.UserType == 'A'"><a href="/SeniorFrontEnd/#/manageusers">Manage Users</a></li>
+
+
+                            <li><a href="/SeniorFrontEnd/#/#about">About</a></li>
+                            <li ng-show="isLoggedIn()"><a href="/SeniorFrontEnd/#/#">User manual</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li ng-show="isLoggedIn()"><a ng-click="logout()">Logout</a></li>
+                                    <li ng-hide="isLoggedIn()"><a href="/SeniorFrontEnd/#/login#partialsDiv">login</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.navbar-collapse -->
+                </div>
+            </div>
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron" id="home">
+                <div class="container">
+                    <div class="media">
+                        <a href="#" class="pull-right"><img class="media-object" src="images/Finder_256.png"/></a>
+
+                        <div class="media-body">
+                            <div class="col-md-11">
+                                <h1 class="title" style="font-size: 218% !important;">(OVS) Online Vulnerability Scanner</h1>
+
+                                <p>OVS Software builded to achieve a high level of security to Qatar University Machines. </p>
+
+                                <p><a  href="/SeniorFrontEnd/#/#about" class="btn btn-success btn-lg">Learn more <i class="icon icon-angle-right"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="partialsDiv" class="container" >
+
+                <div class="box">
+                    <div class="box-shadow"></div>
+                    <div  ng-view="" class="box-gradient">
+
+                    </div>
+                </div>
+                <!--<div id="partialsDiv" ng-view="" class="box" style="min-height: 750px !important;">
+                        </div> -->
+
+            </div>
+
+
+            <section class="slider" id="about">
+                <div class="container">
+                    <div class="inner-page">
+                        <h2 class="page-headline large text-center">[OVS Team]</h2>
+
+                        <p class="text-center">In these last days of being a students in QU as an undergraduate students we want to thank our supervisor Dr.Ryan for his great effort and for motivating us to achive what we are actually now ..</p>
+                    </div>
+                    <div class="row inner-page">
+                        <div style="left: 3% !important;" class="col-md-8 col-md-push-4 lazy-container loaded">
+                            <!--<img data-original="images/mockup.png" src="images/mockup.png" alt="Looks great on every device"-->
+                            <!--class="lazy">-->
+
+                            <h2>Our <strong>Team</strong></h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-group"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">Abdulla Al Shaer</h4>
+
+                                            <p class="tall">QID: 201001976</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-group"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">Omar AbuHassan</h4>
+
+                                            <p class="tall">QID: 201003193</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-group"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">Sayyaf AlHazbi</h4>
+
+                                            <p class="tall">QID: 201003610</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div style="margin-top: -70px;" class="col-md-6">
+
+                                    <div class="feature-box">
+                                        <h2>Integrated <strong>Tools</strong></h2>
+                                        <div class="feature-box-icon">
+                                            <i class="icon-magic small user"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">Nmap</h4>
+
+                                            <p class="tall">To perform basic scan.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-magic small user"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">WPScan</h4>
+
+                                            <p class="tall">To discover the vulnerabilities on the wordpress blogs.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-magic small user"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">JoomScan</h4>
+
+                                            <p class="tall">To discover the vulnerabilities on the Joomla scripts.</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-box">
+                                        <div class="feature-box-icon">
+                                            <i class="icon-magic small user"></i>
+                                        </div>
+                                        <div class="feature-box-info">
+                                            <h4 class="shorter">OpenSSL</h4>
+
+                                            <p class="tall">To perform HearBleed, Freake and poodle Scans</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <footer id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-ribbon" style="right: 0">
+                            <h3 class="title" style="margin: 0;padding: 5px 10px">Thank <span>You</span></h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a class="logo" href="index.html">
+                                    <img src="images/expose-logo.png" alt="OVS">
+                                </a>
+                            </div>
+                            <div class="col-md-5">
+                                <p>&copy; Copyright 2015 by OVS Team. All Rights Reserved.</p>
+                            </div>
+                            <div class="col-md-5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="js/jquery.js"></script>
+            <script src="bootstrap/js/bootstrap.min.js"></script>
+        </div>
+    </body>
+</html>

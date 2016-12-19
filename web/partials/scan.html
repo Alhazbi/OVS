@@ -1,0 +1,83 @@
+<div class="container" style="padding-top: 70px;"> 
+    
+     <h1>Scan result - <small> for :{{scan.ip}}</small></h1> 
+    <div id="networkscan">
+
+        <h1>Network Scan results</h1> 
+    
+        </br>
+        </br>
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>freakSSL</th>
+                    <th>heartBleedSSL</th>
+                    <th>poodleSSL</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>
+                        <div ng-if="scan.networkScanResult.freakSSL">
+                            &#x2714
+                        </div>
+                        <div ng-if="!scan.networkScanResult.freakSSL">
+                            &#x2613
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-if="scan.networkScanResult.heartBleedSSL">
+                            &#x2714
+                        </div>
+                        <div ng-if="!scan.networkScanResult.heartBleedSSL">
+                            &#x2613
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-if="scan.networkScanResult.poodleSSL">
+                            &#x2714
+                        </div>
+                        <div ng-if="!scan.networkScanResult.poodleSSL">
+                            &#x2613
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div id="webscan">
+        <h1>Web Scan Results</h1>
+
+
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th width="20%">Url</th>
+                    <th>Exploit name</th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr ng-repeat="site in scan.webScanResult.websites">
+                    <td>{{site.URL}}</td>
+                    <td style="padding: 0px">
+                        <table class="table table-striped table-condensed" style="margin-bottom :0px">
+                            <!--<tr ng-class="styles[$index%5]"   ng-repeat="exploit in site.exploits">-->
+                               <tr ng-class="getStyle()"   ng-repeat="exploit in site.exploits">
+                                <td style="padding: 6px">
+                                                                
+                                 <div ng-bind-html="getString(exploit)"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

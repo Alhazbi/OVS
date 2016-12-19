@@ -1,0 +1,80 @@
+<style type="text/css">
+
+
+
+    label {
+        width: 30%;
+        text-align: right;
+
+        color: #0D0C0C;
+        font-family: "Open Sans", serif;
+        font-feature-settings: "liga";
+        font-kerning: auto;
+        font-style: normal;
+        font-size: 1.1em;
+        font-weight: 200;
+    }
+
+    label + input {
+        width: 30%;
+        margin: 0 30% 0 4%;
+    }
+    .center{
+
+        text-align: center;
+    }
+    .right{
+        float: center;
+
+    }
+
+</style>
+
+<form name="newuserForm">
+
+    <P>&nbsp;</P> 
+    <P>&nbsp;</P> 
+    <div>
+        <label>First Name:</label>
+
+        <input id='firstName' name='firstName' ng-model="newuser.firstName" required>
+    </div>
+    <P>&nbsp;</P> 
+    <div>
+        <label for="lastName">Last Name:</label>
+
+        <input id='lastName' name='lastName' ng-model="newuser.lastName" required minlength="3" maxlength="20">
+
+    </div>
+    <P>&nbsp;</P> 
+    <div>
+        <label for='password' >Password:</label>
+        <input type="password" id='password' ng-model="newuser.password" required minlength="6" maxlength="50" />
+
+    </div>
+    <P>&nbsp;</P> 
+    <div>
+        <label for='Email' >Email:</label>
+        <input id='email' type="email" name='email' ng-model="newuser.email" required minlength="6" maxlength="50" />
+
+    </div>
+    <P>&nbsp;</P> 
+
+    <div>
+        <label for='newusertype'>User Type: </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id='newusertype' name='newusertype' ng-model="newuser.userType" class ="right" required>
+
+            <option value="N">Normal User</option>
+            <option value="A" >Admin User</option>
+        </select>
+
+    </div>
+    <center>
+        <button type="submit" class="btn btn-primary" ng-click="addUser(newuser)">Add</button>
+        <button ng-click="goBack()" class="btn btn-primary">Cancel</button>
+    </center>
+</form>
+
+
+

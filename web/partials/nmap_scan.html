@@ -1,0 +1,49 @@
+<div class="container" style="padding-top: 70px;"> 
+    
+     <h1>Nmap Scan result </h1> 
+   
+    </br>
+
+    <div ng-repeat="site in nampScan" id="nmapscan">
+    
+<div  id="site.ip" class="bs-callout bs-callout-warning bs-callout" ng-click="show=(show+1)%2">
+    <h3 ng-if="site.open">{{site.ip}} - [HOST UP] <span style="float:right" > <input class="ip-check-box" type="checkbox" name="{{site.ip}}" value="{{site.ip}}">select</span></h3>
+    <h3 ng-if="!site.open">{{site.ip}} - [HOST DOWN] </h3>
+    
+</div>
+    <div ng-bind-html="getString(site.report)"ng-show="show">
+      
+    </div>
+        
+ 
+    </div>
+    <p> ------------------------------------------------------------------- </p>
+<br />
+<h2>Select IP address(es) from the list</h2>
+<br />
+  <form>
+ <div class="form-group">
+    <label for="scanlevel">Scan Level</label>
+    <select id="scanlevel" ng-init="scanlevel =scanlevel || 1" ng-model="scanlevel">
+        <option  value="1">1</option>
+           <option value="2">2</option>
+                          <option value="4" >3</option>
+                                         <option  value="4">4</option>
+                                                        <option value="5">5</option>
+
+    </select>
+   </div>
+  <div class="checkbox">
+    <label>
+        <input  ng-model="isNetworkScan" type="checkbox"> Network Scan
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input  ng-model="isWebScan"   type="checkbox"> Web Scan
+    </label>
+  </div>
+  <button ng-click="submitScan()" id="submit" type="submit" class="btn btn-default">Submit</button>
+</form>
+    
+</div>
